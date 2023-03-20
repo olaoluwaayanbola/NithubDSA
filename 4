@@ -22,3 +22,25 @@
   }
 
   return low;
+
+
+var isValid = function(s) {
+  let brac = {
+      '(':')',
+      '{':'}',
+      '[':']'
+  }
+  let stack = []
+  
+  for(let i of s) {
+      if(brac[i]) {
+          stack.push(brac[i])
+          console.log(stack)
+      } else {
+          if (stack.pop() !== i) return false
+      }
+  }
+    
+  return !stack.length
+};
+isValid("()[]")
